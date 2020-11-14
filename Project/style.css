@@ -44,4 +44,9 @@ form {
 
   .error-message{
     display: none;
+    color: #cc0033;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    border-style: solid;
+    text-align: center;
   }

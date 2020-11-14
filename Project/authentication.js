@@ -26,7 +26,6 @@ function register(){
       })
       .catch(error => displayErrorMessage(error.message));
 }
-
 function displayErrorMessage(message){
   elements.errorMessage().style.display = 'block';
   elements.errorMessage().textContent = message;
@@ -36,7 +35,6 @@ function displayErrorMessage(message){
     elements.errorMessage().textContent = '';
   }, 2500);
 }
-
 function userLogin(){
   const email = elements.logInEmail().value;
   const password = elements.logInPasswrd().value;
@@ -50,16 +48,14 @@ function userLogin(){
       Promise.reject(response);
     })
     .then(res => {
-      elements.logInEmail.value = '';
-      elements.logInPasswrd.value = '';
+      elements.logInEmail().value = '';
+      elements.logInPasswrd().value = '';
     })
     .catch(error => displayErrorMessage(error.message));
 }
-
 function userLogout(){
   auth.signOut();
 }
-
 function getTasks(){
   console.log(auth.currentUser);
 }
