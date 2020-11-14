@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
+    <script src="Config.js"></script>
+    <script type="module" src = "elements.js"></script>
+    <script type="module" src="test.js"></script>
+    <title>Git Hub Project</title>
+</head>
+
+<body>
+  <form>
+    <div class="register-form-container">
+      <h1>Registration</h1>
+            <label for="username"><b>Username</b></label>
+            <input type="text" id="username-inputReg" placeholder="Enter Username" name="uname" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password-inputReg" placeholder="Enter Password" name="psw" required>
+
+            <button type="button" id="register-button">Register</button>
+        </div>
+    </form>
+    <br>
+    <form>
+        <div class="login-form-container">
+            <h1>Login</h1>
+            <label for="username"><b>Username</b></label>
+            <input type="text" id="username-input" placeholder="Enter Username" name="uname" required>
+
+            <label for="password"><b>Password</b></label>
+            <input type="password" id="password-input" placeholder="Enter Password" name="psw" required>
+
+            <button type="button" id="login-button">Login</button>
+            <button type="button" id="logout-button">Logout</button>
+        </div>
+    </form>
+
+    <button type="button" id="get-tasks">Get tasks</button>
+    <!-- TO DO list -->
+    <div id="to-do-list-wrapper">
+        
+    </div>
+    <h2 class="error-message"></h2>
+</body>
+
+</html>
