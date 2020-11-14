@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="tasksSectionStyle.css">
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-database.js"></script>
@@ -45,12 +46,8 @@
         </div>
     </form>
     <button type="button" id="get-tasks">Get tasks</button>
-    <button type="button" id="add-tasks">Add tasks</button>
     <button type="button" id="finish-tasks">Finish tasks</button>
     <button type="button" id="delete-tasks">delete tasks</button>
-    
-    <input type="text" id="task-header-input" placeholder="task header">
-    <input type="text" id="task-description-input" placeholder="task header">
 
     <section id="tasks">
 
@@ -60,6 +57,57 @@
 
     <div class="error-message"></div>
     <ul id="TestingPurposes"></ul>
+
+
+    <main>
+        <div class="wrapper">
+            <section>
+                <div>
+                    <h1 class="gray">Add Task</h1>
+                </div>
+                <div>
+                    <form action="">
+                        <label for="task">Task</label><br>
+                        <input type="text" id="task-header-input" name="task" placeholder="name.."><br>
+                        <label for="description">Description</label><br>
+                        <textarea id="task-description-input" placeholder="Description..."></textarea>
+                        <button id="add-tasks" type="button">Add</button>
+                        <button id="load-tasks" type="button">Load</button>
+                    </form>
+                </div>
+            </section>
+
+            <section>
+                <div>
+                    <h1 class="orange">To Do</h1>
+                </div>
+                <div>
+                    
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h1 class="yellow">In Progress</h1>
+                </div>
+                <div id="in-progress">
+                    
+                </div>
+            </section>
+            <section>
+                <div>
+                    <h1 class="green">Complete</h1>
+                </div>
+                <div>
+                    
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <h1>Test</h1>
+    <h1>Test</h1>
+    <h1>Test</h1>
+    <h1>Test</h1>
 </body>
 
 </html>

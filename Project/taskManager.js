@@ -2,30 +2,30 @@ import {elements} from "./elements.js"
 
 const baseUrl = 'https://github---site.firebaseio.com/';
 
-elements.tasksButton().addEventListener('click', getTasks)
+elements.loadTasksButton().addEventListener('click', getTasks)
 elements.addTaskButton().addEventListener('click', addTask)
 //elements.updateTaskButton().addEventListener('click', updateTask)
 elements.finishTaskButton().addEventListener('click', () => {
-    updateTaskState('da qm', 'finish');
+    
 
     //to do
 })
 
 elements.deleteTaskButton().addEventListener('click', () => {
-    deleteTask('da qm');
+   
 
     //to do
 })
 
-function deleteTask(taskHeader){
+function deleteTask(key){
     const uid = firebase.auth().currentUser.uid;
 
-    fetch(baseUrl + `personalInformation/${uid}/tasks/${taskHeader}.json`,{method: "DELETE"})
+    fetch(baseUrl + `personalInformation/${uid}/tasks/${key}.json`,{method: "DELETE"})
         .then(response => {
-            //to do
+            console.log(response);
         })
         .catch(error => {
-            // to do
+            console.log(error);
         });
 }
 
@@ -46,7 +46,7 @@ function getTasks(){
             Promise.reject(response);
         })
         .then(tasks => {
-            console.log(tasks);
+            console.log(tasks); //to do
         })
         .catch(error => console.log(error)); // to do send error message
 }
@@ -62,15 +62,21 @@ function addTask(){
     }
     
     const taskObj = {
+        header: taskHeader,
         description: taskDescription,
         state: 'To Do'
     }
 
-    firebase.database()
-        .ref(`personalInformation/${uid}/tasks`)
-        .child(taskHeader)
-        .set(taskObj)
+    fetch(baseUrl + `personalInformation/${uid}/tasks.json`,
+        {method: "POST", body: JSON.stringify(taskObj)})
         .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+
+            Promise.reject(response);
+        })
+        .then(key => {
             elements.taskHeader().value = '';
             elements.taskDescription().value = '';
         })
@@ -79,12 +85,12 @@ function addTask(){
         })
 }
 
-function updateTaskState(taskHeader, state){
+function updateTaskState(key, state){
     const uid = firebase.auth().currentUser.uid;
 
     const requestObj = {method: "PATCH", body: JSON.stringify({state})};
 
-    fetch(baseUrl + `personalInformation/${uid}/tasks/${taskHeader}.json`,requestObj)
+    fetch(baseUrl + `personalInformation/${uid}/tasks/${key}.json`,requestObj)
         .then(response => {
             //to do
         })
