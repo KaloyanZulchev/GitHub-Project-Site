@@ -4,6 +4,8 @@ export const elements = {
     logOutButton: () => document.getElementById('logout-button'),
     tasksButton: () => document.getElementById('get-tasks'),
     addTaskButton: () => document.getElementById('add-tasks'),
+    finishTaskButton: () => document.getElementById('finish-tasks'),
+    deleteTaskButton: () => document.getElementById('delete-tasks'),
     registrationEmail: () => document.getElementById('username-inputReg'),
     registrationPassword: () => document.getElementById('password-inputReg'),
     //registrationPasswordConfirn = () => document.getElementById('register-button'),

@@ -4,6 +4,30 @@ const baseUrl = 'https://github---site.firebaseio.com/';
 
 elements.tasksButton().addEventListener('click', getTasks)
 elements.addTaskButton().addEventListener('click', addTask)
+//elements.updateTaskButton().addEventListener('click', updateTask)
+elements.finishTaskButton().addEventListener('click', () => {
+    updateTaskState('da qm', 'finish');
+
+    //to do
+})
+
+elements.deleteTaskButton().addEventListener('click', () => {
+    deleteTask('da qm');
+
+    //to do
+})
+
+function deleteTask(taskHeader){
+    const uid = firebase.auth().currentUser.uid;
+
+    fetch(baseUrl + `personalInformation/${uid}/tasks/${taskHeader}.json`,{method: "DELETE"})
+        .then(response => {
+            //to do
+        })
+        .catch(error => {
+            // to do
+        });
+}
 
 function getTasks(){
     const uid = checkForUser();
@@ -53,6 +77,20 @@ function addTask(){
         .catch(error => {
             console.log(error);// To do send error message
         })
+}
+
+function updateTaskState(taskHeader, state){
+    const uid = firebase.auth().currentUser.uid;
+
+    const requestObj = {method: "PATCH", body: JSON.stringify({state})};
+
+    fetch(baseUrl + `personalInformation/${uid}/tasks/${taskHeader}.json`,requestObj)
+        .then(response => {
+            //to do
+        })
+        .catch(error => {
+            // to do
+        });
 }
 
 function checkForUser(){
