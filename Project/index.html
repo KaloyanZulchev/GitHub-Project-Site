@@ -12,6 +12,8 @@
     <script type="module" src="taskManager.js"></script>
     <script type="module" src="elements.js"></script>
     <script type="module" src="authentication.js"></script>
+    <script type="module" src="urlRepositories.js"></script>
+    <script type="module" src="getGitHubInformation.js"></script>
     <title>Git Hub Project</title>
 </head>
 
@@ -42,14 +44,16 @@
             <button type="button" id="logout-button">Logout</button>
         </div>
     </form>
-
     <button type="button" id="get-tasks">Get tasks</button>
     <button type="button" id="add-tasks">Add tasks</button>
     
     <input type="text" id="task-header-input" placeholder="task header">
     <input type="text" id="task-description-input" placeholder="task header">
+    
+    <button type="button" id="get-information-github">Load GitHub info</button>
 
     <div class="error-message"></div>
+    <ul id="TestingPurposes"></ul>
 </body>
 
 </html>

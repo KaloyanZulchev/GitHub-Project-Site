@@ -21,7 +21,7 @@ form {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 5%;
+    width: 9%;
   }
   button#logout {
     background-color:red;
