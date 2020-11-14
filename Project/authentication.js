@@ -5,7 +5,6 @@ const auth = firebase.auth();
 elements.registrationButton().addEventListener('click', register);
 elements.logInButton().addEventListener('click', userLogin);
 elements.logOutButton().addEventListener('click', userLogout);
-elements.tasksButton().addEventListener('click', getTasks);
 
 function register(){
     const email = elements.registrationEmail().value;
@@ -55,7 +54,4 @@ function userLogin(){
 }
 function userLogout(){
   auth.signOut();
-}
-function getTasks(){
-  console.log(auth.currentUser);
 }
